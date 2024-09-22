@@ -1,16 +1,26 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Configs.Enemy;
+using Enemies;
 using Enemies.Abstractions;
+using Enemies.State.States;
+using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyStateMachine : IStateSwitcher
 {
     private List<IEnemyState> _states;
     private IEnemyState _currentState;
     
-    public EnemyStateMachine()
+    public EnemyStateMachine(NavMeshAgent agent, EnemyConfig config, Enemy enemy, LayerMask mask)
     {
-        
+        _states = new List<IEnemyState>()
+        {
+            new MovementState(agent, config, enemy, this),
+            new AttackState(agent, config, enemy, this, mask),
+        };
+        _currentState = _states[0];
     }
 
     public void Update()

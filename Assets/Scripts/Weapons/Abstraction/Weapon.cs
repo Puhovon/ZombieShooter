@@ -1,18 +1,20 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using Configs;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using Zenject;
 
 namespace Weapons.Abstraction
 {
-    public abstract class Weapon : MonoBehaviour
+    public abstract class Weapon : MonoBehaviour, IWeapon
     {
         [SerializeField] private WeaponConfig _config;
         [SerializeField] private int _ammo;
-        private InputSystem_Actions _input;
-        private Coroutine _coroutine;
         [SerializeField] private bool _canAttack = true;
+
+        private InputSystem_Actions _input;
+        private Coroutine _reloadCoroutine;
+        private Coroutine _timerToReloadCoroutine;
         protected WeaponConfig Config => _config;
         protected int Ammo => _ammo;
         protected bool CanAttack
@@ -20,6 +22,8 @@ namespace Weapons.Abstraction
             get => _canAttack;
             set => _canAttack = value;
         }
+
+        protected InputSystem_Actions Input => _input;
         
         [Inject]
         private void Construct(InputSystem_Actions input)
@@ -32,56 +36,36 @@ namespace Weapons.Abstraction
             _ammo = _config.MaxAmmo;
         }
 
-        private void OnEnable()
-        {
-            _input.Player.Attack.performed += Attack;
-            if(!_canAttack)
-                Reload();
-        }
-
-        private void OnDisable()
-        {
-            _input.Player.Attack.performed -= Attack;
-            if(_coroutine != null)
-                StopCoroutine(_coroutine);
-            _coroutine = null;
-        }
-
-        public virtual void Attack(InputAction.CallbackContext callbackContext)
+        protected bool Attack()
         {
             if (!_canAttack)
-                return;
-            if (_ammo == 0)
             {
-                _coroutine = StartCoroutine(ReloadTimer());
-                return;
+                return false;
             }
             _ammo -= 1;
-        }
-        
-        public virtual void Reload()
-        {
             _canAttack = false;
-            _coroutine = StartCoroutine(ReloadTimer());
-            _canAttack = true;
+            return true;
         }
-        
-        private IEnumerator ReloadTimer()
+
+
+        public IEnumerator TimerReload()
         {
-            _canAttack = false;
+            print("Reload Timer");
             yield return new WaitForSeconds(_config.ReloadTime);
             _ammo = _config.MaxAmmo;
             _canAttack = true;
-            _coroutine = null;
         }
+
         
         public IEnumerator TimerToNextShoot()
         {
-            CanAttack = false;
+            print("Timer To Next Shoot");
             yield return new WaitForSeconds(_config.TimeToNextShoot);
-            CanAttack = true;
+            _canAttack = true;
         }
-        
-        public abstract void Raycasting();
+
+        public virtual void Shoot() { }
+
+        protected abstract void Raycasting();
     }
 }

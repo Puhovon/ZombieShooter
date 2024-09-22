@@ -1,37 +1,58 @@
-﻿using System.Collections;
+﻿using Configs;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Utilities;
 using Weapons.Abstraction;
+using Zenject;
 
 namespace Weapons
 {
     public class Revolver : Weapon
     {
         [SerializeField] private ParticleSystem _particle;
-        private DefaultRaycaster _raycaster;
-        private Coroutine _coroutine;
+        [SerializeField] private WeaponView _view;
+
+        private IRaycaster _raycaster;
+        private bool _canAttack;
+        private InputSystem_Actions _input;
+        
+        [Inject]
+        private void Construct(InputSystem_Actions input)
+        {
+            _input = input;
+        }
+        
         private void Start()
         {
-            _raycaster = new DefaultRaycaster(transform, Config.Distance, _particle);
+            _raycaster = new DefaultRaycaster(transform, Config.Distance, _particle, _view);
         }
 
-        public override void Attack(InputAction.CallbackContext callbackContext)
+        private void OnEnable()
         {
-            base.Attack(callbackContext);
-            if (Ammo == 0)
-                return;
-            Raycasting();
-            
+            _input.Player.Attack.performed += HandleAttack;
         }
 
-        public override void Raycasting()
+        private void OnDisable()
+        {
+            _input.Player.Attack.performed -= HandleAttack;
+        }
+
+        private void HandleAttack(InputAction.CallbackContext callbackContext)
+        {
+            if(Attack())
+                Shoot();
+        }
+
+        protected override void Raycasting()
         {
             _raycaster.RayCasting(Config.Damage);
-            _coroutine = StartCoroutine(TimerToNextShoot());
         }
-        
-        
+
+        public override void Shoot()
+        {
+            Raycasting();
+        }
+
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.green;
