@@ -1,4 +1,6 @@
-﻿using Global.Abstractions;
+﻿using System;
+using System.Linq;
+using Global.Abstractions;
 using UnityEngine;
 
 namespace Utilities
@@ -18,15 +20,22 @@ namespace Utilities
             _damage = damage;
         }
 
-        public void Overlapping()
+        public IDamagable Overlapping()
         {
             Collider[] colliders = new Collider[32];
+            Collider res;
+            IDamagable damagable;
             int finded = Physics.OverlapSphereNonAlloc(_center.position, _radius, colliders, _mask);
-            for (int i = 0; i < finded; i++)
-            {
-                if(colliders[i].TryGetComponent(out IDamagable damagable))
-                    damagable.TakeDamage(_damage);
-            }
+            res = colliders.FirstOrDefault(c => c.TryGetComponent(out damagable));
+            if (res is null)
+                throw new ArgumentNullException("Damagable not found");
+            return res.GetComponent<IDamagable>();
+            // TODO: Check why it's return to similar objects(two Player object)
+            // for (int i = 0; i < finded; i++)
+            // {
+            //     if(colliders[i].TryGetComponent(out IDamagable damagable))
+            //         damagable.TakeDamage(_damage);
+            // }
         }
     }
 }

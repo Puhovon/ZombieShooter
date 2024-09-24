@@ -13,7 +13,6 @@ namespace Weapons
         [SerializeField] private WeaponView _view;
 
         private IRaycaster _raycaster;
-        private bool _canAttack;
         private InputSystem_Actions _input;
         
         [Inject]

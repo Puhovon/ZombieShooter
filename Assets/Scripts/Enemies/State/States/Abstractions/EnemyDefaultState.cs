@@ -14,7 +14,7 @@ namespace Enemies.State.States.Abstractions
         protected NavMeshAgent Agent => _agent;
         protected EnemyConfig Config => _config;
         protected Enemy Enemy => _enemy;
-        protected IStateSwitcher _stateSwitcher;
+        protected IStateSwitcher StateSwitcher => _switcher;
 
         public EnemyDefaultState(NavMeshAgent agent, EnemyConfig config, Enemy enemy, IStateSwitcher switcher)
         {
@@ -31,11 +31,17 @@ namespace Enemies.State.States.Abstractions
 
         public virtual void Exit()
         {
+            
         }
 
         public virtual void Update()
         {
             
+        }
+
+        public bool IsPlayerInAttackDistance()
+        {
+            return (Enemy.transform.position - Enemy.Player.position).magnitude < Config.MoveConfig.distanceToAttack;
         }
     }
 }

@@ -11,10 +11,14 @@ namespace Enemies
         [SerializeField] private NavMeshAgent _agent;
         [SerializeField] private EnemyConfig _config;
         [SerializeField] private LayerMask _mask;
-
-        private EnemyStateMachine _stateMachine;
+        [SerializeField] private Transform _finder;
         [SerializeField] private Transform _player;
 
+        [SerializeField] private float _disstance;
+        
+        private EnemyStateMachine _stateMachine;
+
+        public Transform Finder => _finder;
         public Transform Player => _player;
 
         [Inject]
@@ -31,14 +35,15 @@ namespace Enemies
         private void Update()
         {
             _stateMachine.Update();
+            _disstance = (_finder.position - Player.position).magnitude;
         }
 
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.yellow;
-            Gizmos.DrawSphere(transform.position, _config.AttackConfig.attackRadius);
+            Gizmos.DrawSphere(Finder.position, _config.AttackConfig.attackRadius);
             Gizmos.color = Color.red;
-            Gizmos.DrawSphere(transform.position, _config.MoveConfig.distanceToAttack);
+            Gizmos.DrawSphere(Finder.position, _config.MoveConfig.distanceToAttack);
         }
     }
 }

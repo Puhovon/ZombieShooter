@@ -25,11 +25,14 @@ public class EnemyStateMachine : IStateSwitcher
 
     public void Update()
     {
+        if (_currentState is null)
+            throw new ArgumentNullException($"{nameof(_currentState)} is not defined");
         _currentState.Update();
     }
     
     public void SwitchState<T>() where T : IEnemyState
     {
+        Debug.Log("SwitchSState");
         _currentState.Exit();
         _currentState = _states.FirstOrDefault((state) => state is T);
         if (_currentState is null)

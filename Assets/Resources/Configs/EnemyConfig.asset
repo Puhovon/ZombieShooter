@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: EnemyConfig
   m_EditorClassIdentifier: 
   _attackConfig:
-    attackRadius: 1.5
-    damage: 0
+    attackRadius: 2.5
+    damage: 5
+    timeToNextAttack: 2
   _moveConfig:
     speed: 0
-    distanceToAttack: 1
+    distanceToAttack: 1.5

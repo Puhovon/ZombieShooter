@@ -10,7 +10,7 @@ namespace Enemies.State.States
     {
         public MovementState(NavMeshAgent agent, EnemyConfig config, Enemy enemy, IStateSwitcher stateSwitcher) : base(agent, config, enemy, stateSwitcher)
         {
-            
+            Debug.Log(StateSwitcher is null);
         }
 
         public override void Enter()
@@ -27,9 +27,10 @@ namespace Enemies.State.States
         public override void Update()
         {
             base.Update();
-            if ((Enemy.transform.position - Enemy.Player.position).magnitude < Config.MoveConfig.distanceToAttack)
+            if (IsPlayerInAttackDistance())
             {
-                _stateSwitcher.SwitchState<AttackState>();
+                StateSwitcher.SwitchState<AttackState>();
+                return;
             }
             Agent.SetDestination(Enemy.Player.position);
         }

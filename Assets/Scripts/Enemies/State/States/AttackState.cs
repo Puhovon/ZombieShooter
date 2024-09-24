@@ -1,6 +1,8 @@
-﻿using Configs.Enemy;
+﻿using System.Collections;
+using Configs.Enemy;
 using Enemies.Abstractions;
 using Enemies.State.States.Abstractions;
+using Global.Abstractions;
 using UnityEngine;
 using UnityEngine.AI;
 using Utilities;
@@ -10,6 +12,7 @@ namespace Enemies.State.States
     public class AttackState : EnemyDefaultState
     {
         private Overlaper _overlaper;
+        private bool _canAttack = true;
         public AttackState(NavMeshAgent agent, EnemyConfig config, Enemy enemy, IStateSwitcher switcher, LayerMask mask) : base(agent, config, enemy, switcher)
         {
             _overlaper = new Overlaper(enemy.transform, Config.AttackConfig.attackRadius,mask, Config.AttackConfig.damage);
@@ -17,7 +20,6 @@ namespace Enemies.State.States
         public override void Enter()
         {
             base.Enter();
-            Debug.Log(GetType());
         }
 
         public override void Exit()
@@ -28,7 +30,30 @@ namespace Enemies.State.States
         public override void Update()
         {
             base.Update();
-            _overlaper.Overlapping();
+            if (!IsPlayerInAttackDistance())
+            {
+                StateSwitcher.SwitchState<MovementState>();
+                return;
+            }
+            if(!_canAttack)
+                return;
+            var colliders = _overlaper.Overlapping();
+            Attack(colliders);
+        }
+
+        private void Attack(IDamagable colliders)
+        {
+            if(!_canAttack)
+                return;
+            _canAttack = false;
+            colliders.TakeDamage(Config.AttackConfig.damage);
+            Enemy.StartCoroutine(TimerToNextAttack());
+        }
+
+        private IEnumerator TimerToNextAttack()
+        {
+            yield return new WaitForSeconds(Config.AttackConfig.timeToNextAttack);
+            _canAttack = true;
         }
     }
 }

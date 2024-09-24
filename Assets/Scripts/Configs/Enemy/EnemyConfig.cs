@@ -16,13 +16,14 @@ namespace Configs.Enemy
     [Serializable]
     public class AttackConfig
     {
-        [field: SerializeField] public float attackRadius;
-        [field: SerializeField] public int damage;
+        [field: SerializeField, Min(1)] public float attackRadius;
+        [field: SerializeField, Min(5)] public int damage;
+        [field: SerializeField, Min(0.1f)] public float timeToNextAttack;
     }
     [Serializable]
     public class MoveConfig
     {
-        [field: SerializeField] public float speed;
-        [field: SerializeField] public float distanceToAttack;
+        [field: SerializeField, Min(1)] public float speed;
+        [field: SerializeField, Min(1)] public float distanceToAttack;
     }
 }
