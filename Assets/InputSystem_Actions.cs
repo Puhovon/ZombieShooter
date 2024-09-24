@@ -50,7 +50,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""name"": ""Attack"",
                     ""type"": ""Button"",
                     ""id"": ""6c2ab1b8-8984-453a-af3d-a3c78ae1679a"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -117,6 +117,15 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Grenade"",
+                    ""type"": ""Button"",
+                    ""id"": ""f68e764b-9c66-42d3-8427-3d4c8580847e"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -513,6 +522,17 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""SelectGun"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b96a362b-8f06-4b4a-906c-035257bd1afe"",
+                    ""path"": ""<Keyboard>/g"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Grenade"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1110,6 +1130,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_Player_Next = m_Player.FindAction("Next", throwIfNotFound: true);
         m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
         m_Player_SelectGun = m_Player.FindAction("SelectGun", throwIfNotFound: true);
+        m_Player_Grenade = m_Player.FindAction("Grenade", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1199,6 +1220,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Next;
     private readonly InputAction m_Player_Sprint;
     private readonly InputAction m_Player_SelectGun;
+    private readonly InputAction m_Player_Grenade;
     public struct PlayerActions
     {
         private @InputSystem_Actions m_Wrapper;
@@ -1213,6 +1235,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         public InputAction @Next => m_Wrapper.m_Player_Next;
         public InputAction @Sprint => m_Wrapper.m_Player_Sprint;
         public InputAction @SelectGun => m_Wrapper.m_Player_SelectGun;
+        public InputAction @Grenade => m_Wrapper.m_Player_Grenade;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1252,6 +1275,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @SelectGun.started += instance.OnSelectGun;
             @SelectGun.performed += instance.OnSelectGun;
             @SelectGun.canceled += instance.OnSelectGun;
+            @Grenade.started += instance.OnGrenade;
+            @Grenade.performed += instance.OnGrenade;
+            @Grenade.canceled += instance.OnGrenade;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1286,6 +1312,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @SelectGun.started -= instance.OnSelectGun;
             @SelectGun.performed -= instance.OnSelectGun;
             @SelectGun.canceled -= instance.OnSelectGun;
+            @Grenade.started -= instance.OnGrenade;
+            @Grenade.performed -= instance.OnGrenade;
+            @Grenade.canceled -= instance.OnGrenade;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1478,6 +1507,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         void OnNext(InputAction.CallbackContext context);
         void OnSprint(InputAction.CallbackContext context);
         void OnSelectGun(InputAction.CallbackContext context);
+        void OnGrenade(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

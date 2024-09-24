@@ -9,6 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e6bbcf444b3e3948b33625b8340c85b, type: 3}
-  m_Name: NewScriptableObjectScript
+  m_Script: {fileID: 11500000, guid: 469de01375c84d2c8ba5ab491302d4df, type: 3}
+  m_Name: GrenadeConfig
   m_EditorClassIdentifier: 
+  damage: 64
+  radius: 5
+  timeBeforeExplore: 3
+  maxGrenade: 5
