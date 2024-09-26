@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 using Weapons.Abstraction;
 using Zenject;
@@ -11,23 +10,30 @@ namespace Weapons
         [SerializeField] private Weapon[] _weapons;
         [SerializeField] private int length;
         [SerializeField] private int _currentWeaponIndex;
+        private AmmoViewModel _ammoView;
+        private Weapon _currentWeapon;
         private InputSystem_Actions _input;
+        protected Weapon CurrentWeapon => _currentWeapon;
         
         [Inject]
-        private void Constuct(InputSystem_Actions input)
+        private void Constuct(InputSystem_Actions input, AmmoViewModel view)
         {
             _input = input;
+            _ammoView = view;
         }
 
         private void OnEnable()
         {
             _input.Player.SelectGun.performed += SelectGun;
-            _weapons[0].gameObject.SetActive(true);
+            _currentWeapon = _weapons[0];
+            _currentWeapon.OnAmmoChanged += _ammoView.SetNewAmmo;
+            _currentWeapon.gameObject.SetActive(true);
         }
 
         private void OnDisable()
         {
             _input.Player.SelectGun.performed -= SelectGun;
+            _currentWeapon.OnAmmoChanged -= _ammoView.SetNewAmmo;
         }
 
         private void SelectGun(InputAction.CallbackContext cc)
@@ -36,32 +42,30 @@ namespace Weapons
             if(value == 0) 
                 return;
             if (value == 1)
-                GetNextGun();
+                CalculateGunIndex(true);
             else if (value == -1)
-                GetPreviousGun();
-        }
-
-        private void GetPreviousGun()
-        {
-            CalculateGunIndex(false);
+                CalculateGunIndex(false);
         }
 
         private void CalculateGunIndex(bool b)
         {
-            _weapons[_currentWeaponIndex].gameObject.SetActive(false);
             if (_currentWeaponIndex + 1 > _weapons.Length - 1)
                 _currentWeaponIndex = 0;
             else if (_currentWeaponIndex == 0)
                 _currentWeaponIndex = _weapons.Length - 1;
             else
                 _currentWeaponIndex = b ? _currentWeaponIndex++ : _currentWeaponIndex--;
-
-            _weapons[_currentWeaponIndex].gameObject.SetActive(true);
+            SetGun();
         }
 
-        private void GetNextGun()
+        private void SetGun()
         {
-            CalculateGunIndex(true);
+            _currentWeapon.OnAmmoChanged -= _ammoView.SetNewAmmo;
+            _currentWeapon.gameObject.SetActive(false);
+            _currentWeapon = _weapons[_currentWeaponIndex];
+            _currentWeapon.OnAmmoChanged += _ammoView.SetNewAmmo;
+            _currentWeapon.gameObject.SetActive(true);
         }
+        
     }
 }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b564c328a3047c2a4fd8adc7555dacf, type: 3}
   m_Name: AutomaticRifle
   m_EditorClassIdentifier: 
-  Damage: 5
+  Damage: 50
   MaxAmmo: 40
   TimeToNextShoot: 0.5
   ReloadTime: 3

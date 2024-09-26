@@ -24,7 +24,9 @@ namespace Weapons.Abstraction
         }
 
         protected InputSystem_Actions Input => _input;
-        
+
+        public Action<int> OnAmmoChanged; 
+
         [Inject]
         private void Construct(InputSystem_Actions input)
         {
@@ -43,6 +45,7 @@ namespace Weapons.Abstraction
                 return false;
             }
             _ammo -= 1;
+            OnAmmoChanged?.Invoke(_ammo);
             _canAttack = false;
             return true;
         }

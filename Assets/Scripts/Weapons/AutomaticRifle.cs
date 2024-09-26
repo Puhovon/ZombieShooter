@@ -20,6 +20,7 @@ namespace Weapons
 
         private void OnEnable()
         {
+            OnAmmoChanged?.Invoke(Ammo);
             Input.Player.Attack.performed += SetShooting;
             Input.Player.Attack.canceled += SetShooting;
         }
@@ -53,19 +54,15 @@ namespace Weapons
 
         protected override void Raycasting()
         {
-            print("RaycastingStart");
             if (Ammo > 0)
             {
                 _coroutine = StartCoroutine(TimerToNextShoot());
-                print($"Coroutine is Timer To Next Shoot");
             }
             else
             {
                 _coroutine = StartCoroutine(TimerReload());
-                print($"Coroutine is TimerReload");
             }
             _raycaster.RayCasting(Config.Damage);
-            print("Raycasting stop");
         }
         
         private void OnDrawGizmos()

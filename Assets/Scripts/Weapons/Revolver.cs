@@ -14,7 +14,8 @@ namespace Weapons
 
         private IRaycaster _raycaster;
         private InputSystem_Actions _input;
-        
+        private Coroutine _coroutine;
+
         [Inject]
         private void Construct(InputSystem_Actions input)
         {
@@ -28,6 +29,7 @@ namespace Weapons
 
         private void OnEnable()
         {
+            OnAmmoChanged?.Invoke(Ammo);
             _input.Player.Attack.performed += HandleAttack;
         }
 
@@ -44,6 +46,14 @@ namespace Weapons
 
         protected override void Raycasting()
         {
+            if (Ammo > 0)
+            {
+                _coroutine = StartCoroutine(TimerToNextShoot());
+            }
+            else
+            {
+                _coroutine = StartCoroutine(TimerReload());
+            }
             _raycaster.RayCasting(Config.Damage);
         }
 
