@@ -13,12 +13,12 @@ public class EnemyStateMachine : IStateSwitcher
     private List<IEnemyState> _states;
     private IEnemyState _currentState;
     
-    public EnemyStateMachine(NavMeshAgent agent, EnemyConfig config, Enemy enemy, LayerMask mask)
+    public EnemyStateMachine(NavMeshAgent agent, EnemyConfig config, Enemy enemy, LayerMask mask, EnemyView view)
     {
         _states = new List<IEnemyState>()
         {
-            new MovementState(agent, config, enemy, this),
-            new AttackState(agent, config, enemy, this, mask),
+            new MovementState(agent, config, enemy, this, view),
+            new AttackState(agent, config, enemy, this, mask, view),
         };
         _currentState = _states[0];
     }

@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using Configs.Enemy;
 using Global;
+using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 using Zenject;
@@ -17,8 +16,9 @@ namespace Enemies
         [SerializeField] private Transform _finder;
         [SerializeField] private Transform _player;
         [SerializeField] private Health _health;
+        [SerializeField] private EnemyView _view;
 
-        [SerializeField] private float _disstance;
+        [SerializeField] private float _distance;
         
         private EnemyStateMachine _stateMachine;
 
@@ -33,14 +33,14 @@ namespace Enemies
         
         private void Awake()
         {
-            _stateMachine = new EnemyStateMachine(_agent, _config, this, _mask);
+            _stateMachine = new EnemyStateMachine(_agent, _config, this, _mask, _view);
             _health.OnDie += OnDie;
         }
 
         private void Update()
         {
             _stateMachine.Update();
-            _disstance = (_finder.position - Player.position).magnitude;
+            _distance = (_finder.position - Player.position).magnitude;
         }
         
         private void OnDie()

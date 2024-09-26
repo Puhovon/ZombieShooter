@@ -8,20 +8,23 @@ namespace Enemies.State.States
 {
     public class MovementState : EnemyDefaultState
     {
-        public MovementState(NavMeshAgent agent, EnemyConfig config, Enemy enemy, IStateSwitcher stateSwitcher) : base(agent, config, enemy, stateSwitcher)
+        private EnemyView _view;
+        public MovementState(NavMeshAgent agent, EnemyConfig config, Enemy enemy, IStateSwitcher stateSwitcher,
+            EnemyView enemyView) : base(agent, config, enemy, stateSwitcher)
         {
-            Debug.Log(StateSwitcher is null);
+            _view = enemyView;
         }
 
         public override void Enter()
         {
             base.Enter();
-            Debug.Log(GetType());
+            _view.StartRunning();
         }
 
         public override void Exit()
         {
             base.Exit();
+            _view.StopRunning();
         }
 
         public override void Update()

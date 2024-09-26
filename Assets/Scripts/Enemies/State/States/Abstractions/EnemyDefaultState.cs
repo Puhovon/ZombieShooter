@@ -39,7 +39,7 @@ namespace Enemies.State.States.Abstractions
             
         }
 
-        public bool IsPlayerInAttackDistance()
+        protected bool IsPlayerInAttackDistance()
         {
             return (Enemy.transform.position - Enemy.Player.position).magnitude < Config.MoveConfig.distanceToAttack;
         }

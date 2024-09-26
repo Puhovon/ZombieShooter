@@ -9,7 +9,7 @@ namespace Buffs
 
         public void StartDefaultAnim()
         {
-            _mesh.DORotate(_mesh.position, 1f, RotateMode.FastBeyond360).SetLoops(100);
+            _mesh.DORotate(new Vector3(0,360f,0), 1f).SetLoops(100);
         }
 
         public void StartOnTakeAnim()

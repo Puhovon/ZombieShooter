@@ -13,18 +13,25 @@ namespace Enemies.State.States
     {
         private Overlaper _overlaper;
         private bool _canAttack = true;
-        public AttackState(NavMeshAgent agent, EnemyConfig config, Enemy enemy, IStateSwitcher switcher, LayerMask mask) : base(agent, config, enemy, switcher)
+        private EnemyView _view;
+        public AttackState(NavMeshAgent agent, EnemyConfig config, Enemy enemy, IStateSwitcher switcher, LayerMask mask,
+            EnemyView enemyView) : base(agent, config, enemy, switcher)
         {
+            _view = enemyView;
             _overlaper = new Overlaper(enemy.transform, Config.AttackConfig.attackRadius,mask, Config.AttackConfig.damage);
         }
         public override void Enter()
         {
             base.Enter();
+            _view.StartAttack();
+            Agent.isStopped = true;
         }
 
         public override void Exit()
         {
             base.Exit();
+            _view.StopAttack();
+            Agent.isStopped = false;
         }
 
         public override void Update()
