@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Global.Abstractions;
+using NUnit.Framework;
 using UnityEngine;
 
 namespace Utilities
@@ -10,14 +12,12 @@ namespace Utilities
         private Transform _center;
         private float _radius;
         private LayerMask _mask;
-        private int _damage;
         
-        public Overlaper(Transform center, float radius, LayerMask mask, int damage)
+        public Overlaper(Transform center, float radius, LayerMask mask)
         {
             _center = center;
             _radius = radius;
             _mask = mask;
-            _damage = damage;
         }
 
         public IDamagable Overlapping()
@@ -30,12 +30,20 @@ namespace Utilities
             if (res is null)
                 throw new ArgumentNullException("Damagable not found");
             return res.GetComponent<IDamagable>();
-            // TODO: Check why it's return to similar objects(two Player object)
-            // for (int i = 0; i < finded; i++)
-            // {
-            //     if(colliders[i].TryGetComponent(out IDamagable damagable))
-            //         damagable.TakeDamage(_damage);
-            // }
+        }
+
+        public IDamagable[] OverlappingAll()
+        {
+            Collider[] colliders = new Collider[64];
+            List<IDamagable> res = new List<IDamagable>();
+            int finded = Physics.OverlapSphereNonAlloc(_center.position, _radius, colliders, _mask);
+            for (int i = 0; i < finded; i++)
+            {
+                if(colliders[i].TryGetComponent(out IDamagable damagable))
+                    res.Add(damagable);
+            }
+
+            return res.ToArray();
         }
     }
 }

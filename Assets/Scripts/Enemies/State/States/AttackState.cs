@@ -18,7 +18,7 @@ namespace Enemies.State.States
             EnemyView enemyView) : base(agent, config, enemy, switcher)
         {
             _view = enemyView;
-            _overlaper = new Overlaper(enemy.transform, Config.AttackConfig.attackRadius,mask, Config.AttackConfig.damage);
+            _overlaper = new Overlaper(enemy.transform, Config.AttackConfig.attackRadius,mask);
         }
         public override void Enter()
         {

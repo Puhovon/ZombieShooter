@@ -12,8 +12,10 @@ namespace Global
         [SerializeField] private int _currentHealth;
 
         public event Action<int> OnHealthChanged;
-        public event Action OnDie; 
+        public event Action OnDie;
 
+        private bool isDiyng;
+        
         private void Start()
         {
             _currentHealth = _healthConfig.maxHealth;
@@ -24,11 +26,11 @@ namespace Global
         {
             if (damage < 1)
                 throw new ArgumentOutOfRangeException($"{nameof(damage)} canno't be null or less");
-            print(damage);
             _currentHealth -= damage;
-            if (_currentHealth <= 0)
+            if (_currentHealth <= 0 && !isDiyng)
             {
                 OnDie?.Invoke();
+                isDiyng = true;
             }
             OnHealthChanged?.Invoke(_currentHealth);
         }
@@ -43,6 +45,12 @@ namespace Global
             else
                 _currentHealth += heal;
             OnHealthChanged?.Invoke(_currentHealth);
+        }
+
+        public void ResetHP()
+        {
+            _currentHealth = _healthConfig.maxHealth;
+            isDiyng = false;
         }
     }
 }

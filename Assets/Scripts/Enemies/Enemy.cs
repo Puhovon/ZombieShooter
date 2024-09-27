@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using Configs.Enemy;
 using Global;
-using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 using Zenject;
@@ -51,7 +50,7 @@ namespace Enemies
 
         private IEnumerator DieTimer()
         {
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(1);
             Destroy(gameObject);
         }
 

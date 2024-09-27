@@ -1,13 +1,18 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using Configs;
+using Pools.Grenades;
 using UnityEngine;
+using Utilities;
+using Zenject;
 
 namespace Weapons
 {
-    [RequireComponent(typeof(Rigidbody), typeof(GrenadeView))]
+    [RequireComponent(typeof(GrenadeView))]
     public class Grenade : MonoBehaviour
     {
-        [Header("Components")]
+        [Header("Components")] [SerializeField]
+        private GrenadesPool _pool;
         [SerializeField] private Rigidbody _rb;
         [SerializeField] private Collider _collider;
         [SerializeField] private GrenadeView _view;
@@ -15,10 +20,22 @@ namespace Weapons
         [Header("Params")]
         [SerializeField] private int _force;
         [SerializeField] private GrenadeConfig _config;
+        [SerializeField] private LayerMask mask;
+
+        private Overlaper _overlaper;
         
+        [Inject]
+        private void Construct(GrenadesPool pool) => _pool = pool;
+
+        private void Start()
+        {
+            _overlaper = new Overlaper(_rb.transform, _config.radius, mask);
+        }
+
         public void Throw()
         {
             ResetComponents();
+            _rb.gameObject.SetActive(true);
             _rb.AddForce(transform.forward * _force, ForceMode.Impulse);
             StartCoroutine(TimerToExplosion());
         }
@@ -34,13 +51,19 @@ namespace Weapons
         {
             yield return new WaitForSeconds(_config.timeBeforeExplore);
             _view.Explore();
+            var finded =_overlaper.OverlappingAll();
+            foreach(var f in finded)
+                f.TakeDamage(_config.damage);
+            
             StartCoroutine(WaitToDisable());
         }
 
         private IEnumerator WaitToDisable()
         {
             yield return new WaitForSeconds(2);
-            gameObject.SetActive(false);
+            _rb.isKinematic = true;
+            _collider.isTrigger = true;
+            _view.Disable(_pool);
         }
     }
 }

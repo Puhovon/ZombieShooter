@@ -24,8 +24,6 @@ public class AmmoViewModel : MonoBehaviour, INotifyPropertyChanged
 
     public void SetNewAmmo(int ammo)
     {
-        print("______________________________________________________");
-        print(ammo);
         _ammo = ammo;
         AmmoText = $"Ammo: {_ammo}";
     }

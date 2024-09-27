@@ -11,11 +11,13 @@ namespace Pools.Grenades
         [SerializeField] private Grenade _grenadePrefab;
 
         private List<Grenade> _grenades;
-
+        private IInstantiator _instantiator;
+        
         [Inject]
-        private void Construct(List<Grenade> grenades)
+        private void Construct(List<Grenade> grenades, IInstantiator instantiator)
         {
             _grenades = grenades;
+            _instantiator = instantiator;
         }
 
         public Grenade GetGrenade()
@@ -29,7 +31,7 @@ namespace Pools.Grenades
 
         private Grenade CreateNewGrenade()
         {
-            var g = Instantiate(_grenadePrefab, transform, true);
+            var g = _instantiator.InstantiatePrefab(_grenadePrefab, transform.position, Quaternion.identity, transform).GetComponent<Grenade>();
             _grenades.Add(g);
             return g;
         }
