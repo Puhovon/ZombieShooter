@@ -17,5 +17,5 @@ MonoBehaviour:
     damage: 5
     timeToNextAttack: 2
   _moveConfig:
-    speed: 0
-    distanceToAttack: 1.5
+    speed: 2
+    distanceToAttack: 2

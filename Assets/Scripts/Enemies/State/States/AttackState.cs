@@ -23,13 +23,16 @@ namespace Enemies.State.States
         public override void Enter()
         {
             base.Enter();
+            _view.onAttackAnimationEnd += OnAttack;
             _view.StartAttack();
             Agent.isStopped = true;
         }
 
+
         public override void Exit()
         {
             base.Exit();
+            _view.onAttackAnimationEnd -= OnAttack;
             _view.StopAttack();
             Agent.isStopped = false;
         }
@@ -40,10 +43,11 @@ namespace Enemies.State.States
             if (!IsPlayerInAttackDistance())
             {
                 StateSwitcher.SwitchState<MovementState>();
-                return;
             }
-            if(!_canAttack)
-                return;
+        }
+
+        private void OnAttack()
+        {
             var colliders = _overlaper.Overlapping();
             Attack(colliders);
         }
