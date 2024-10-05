@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{9D402C89-AB1E-47AD-A23F-3F4F63300FB5}" SchemaVersion="123">
+	<SoundBanks>
+		<WorkUnit Name="Default Work Unit" ID="{9D402C89-AB1E-47AD-A23F-3F4F63300FB5}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundBank Name="New_SoundBank" ID="{D574551E-DBCF-461B-B43C-E45E5AAA1FDE}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Set_Bus_Volume" ID="{8C9F8CCC-A075-40E9-AADB-857DF6DDA1CF}" WorkUnitID="{33F704F6-B03E-44BA-B173-4C0A0556F551}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="take_gun" ID="{01C3F910-2A7D-447D-A372-0F7BB311F89A}" WorkUnitID="{33F704F6-B03E-44BA-B173-4C0A0556F551}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="PistolTake" ID="{99C504D7-59E4-4825-BBE5-FAE7712ECD29}" WorkUnitID="{33F704F6-B03E-44BA-B173-4C0A0556F551}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="EnemyRunning" ID="{C9D9E016-F564-48EB-A324-C1E27CBFE137}" WorkUnitID="{33F704F6-B03E-44BA-B173-4C0A0556F551}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="EnemyAttack" ID="{5C0DD273-5AD0-4CD5-AC5B-B7AC5E406D60}" WorkUnitID="{33F704F6-B03E-44BA-B173-4C0A0556F551}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="RifleFire" ID="{CB570C64-6760-4E0A-B94C-8C04C49AAC87}" WorkUnitID="{33F704F6-B03E-44BA-B173-4C0A0556F551}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+			</ChildrenList>
+		</WorkUnit>
+	</SoundBanks>
+</WwiseDocument>

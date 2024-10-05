@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{33F704F6-B03E-44BA-B173-4C0A0556F551}" SchemaVersion="123">
+	<Events>
+		<WorkUnit Name="Default Work Unit" ID="{33F704F6-B03E-44BA-B173-4C0A0556F551}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="take_gun" ID="{01C3F910-2A7D-447D-A372-0F7BB311F89A}">
+					<ChildrenList>
+						<Action Name="" ID="{FD60B6DA-0821-436D-A111-A9B45F8E6C3C}" ShortID="537870909">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="TakeGun" ID="{F687B2F2-0CDC-4248-8086-E82B442F3147}" WorkUnitID="{441106BE-739B-4981-A36C-39D5FC0FBBFD}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="EnemyRunning" ID="{C9D9E016-F564-48EB-A324-C1E27CBFE137}">
+					<ChildrenList>
+						<Action Name="" ID="{98332836-5E37-444A-ADBF-1C69927B4FDB}" ShortID="85267004">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Angry" ID="{8A21375A-0C9D-4FE4-B216-1BC4A9289FBD}" WorkUnitID="{441106BE-739B-4981-A36C-39D5FC0FBBFD}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="EnemyAttack" ID="{5C0DD273-5AD0-4CD5-AC5B-B7AC5E406D60}">
+					<ChildrenList>
+						<Action Name="" ID="{9CDFA08C-A2F9-47D3-BD87-EB2D55FCC53E}" ShortID="468017340">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Attack" ID="{BDF367C9-28FC-426A-83FA-15D742E72C19}" WorkUnitID="{441106BE-739B-4981-A36C-39D5FC0FBBFD}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="RifleFire" ID="{CB570C64-6760-4E0A-B94C-8C04C49AAC87}">
+					<ChildrenList>
+						<Action Name="" ID="{CC306165-EE0B-4F79-B950-42C89A36A181}" ShortID="463859599">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="RifleFire" ID="{F5D6B909-3F1B-48E1-BA75-283E3B5EC348}" WorkUnitID="{441106BE-739B-4981-A36C-39D5FC0FBBFD}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="PistolTake" ID="{99C504D7-59E4-4825-BBE5-FAE7712ECD29}">
+					<ChildrenList>
+						<Action Name="" ID="{AE085471-53DB-40C0-BEB5-153A193A07BA}" ShortID="35816371">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="TakePistol" ID="{BCD702FD-0F24-468B-B111-093E38505374}" WorkUnitID="{441106BE-739B-4981-A36C-39D5FC0FBBFD}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="FootStep" ID="{74C3EC41-8C34-4925-9569-616E2B35D4D8}">
+					<ChildrenList>
+						<Action Name="" ID="{F9BBA3AA-5E32-44EE-8A36-EF59DF15A43F}" ShortID="947665158">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Footstep" ID="{CC59594A-973A-4DA1-8D83-643254563797}" WorkUnitID="{441106BE-739B-4981-A36C-39D5FC0FBBFD}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Set_Bus_Volume" ID="{8C9F8CCC-A075-40E9-AADB-857DF6DDA1CF}">
+					<ChildrenList>
+						<Action Name="" ID="{414E262E-7055-4BA3-854A-B324CD2CB5F8}" ShortID="409938155">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="11"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BAB7496F-D806-4792-B6E7-66724EB8583E}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

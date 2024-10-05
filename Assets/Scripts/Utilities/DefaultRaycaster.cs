@@ -22,6 +22,7 @@ namespace Utilities
         public void RayCasting(int damage)
         {
             RaycastHit hit;
+            _weaponView.ShootSound();
             if (!Physics.Raycast(_center.position, _center.forward, out hit, _distance))
             {
                 Debug.Log("MISS");

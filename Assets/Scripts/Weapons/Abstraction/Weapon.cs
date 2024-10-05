@@ -38,7 +38,7 @@ namespace Weapons.Abstraction
             _ammo = _config.MaxAmmo;
         }
 
-        protected bool Attack()
+        protected bool IsCanAttack()
         {
             if (!_canAttack)
             {

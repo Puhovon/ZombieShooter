@@ -1,0 +1,18 @@
+Event	ID	Name			Wwise Object Path	Notes
+	878501037	Set_Bus_Volume			\Default Work Unit\Set_Bus_Volume	
+	899535137	PistolTake			\Default Work Unit\PistolTake	
+	2144693767	EnemyAttack			\Default Work Unit\EnemyAttack	
+	2176766748	EnemyRunning			\Default Work Unit\EnemyRunning	
+	3794713601	RifleFire			\Default Work Unit\RifleFire	
+	4155660387	take_gun			\Default Work Unit\take_gun	
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	3671138082	New_Game_Parameter			\Default Work Unit\New_Game_Parameter	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	193000464	TakeGun	C:\Users\pv487\ZombieShooter\ZombieShooter_WwiseProject\.cache\B1\{B1A79718-B21C-C427-2230-13CABEA72279}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Weapon\TakeGun		51608
+	543007694	RifleFire	C:\Users\pv487\ZombieShooter\ZombieShooter_WwiseProject\.cache\C5\{C5724347-EE49-4FB4-2784-ACCCBB434A5B}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Weapon\RifleFire		243468
+	612114013	TakePistol	C:\Users\pv487\ZombieShooter\ZombieShooter_WwiseProject\.cache\9E\{9E3BBD5E-05D8-E2F5-B530-60597486A8E3}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Weapon\TakePistol		177640
+	836210471	Angry	C:\Users\pv487\ZombieShooter\ZombieShooter_WwiseProject\.cache\61\{61106E91-EC80-66C7-56F4-A595F1555F22}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Angry		89616
+	836851200	Attack	C:\Users\pv487\ZombieShooter\ZombieShooter_WwiseProject\.cache\7C\{7CF6056F-99EE-C20B-24A9-017D887EB137}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Attack		126176
+

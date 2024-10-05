@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{441106BE-739B-4981-A36C-39D5FC0FBBFD}" SchemaVersion="123">
+	<AudioObjects>
+		<WorkUnit Name="Default Work Unit" ID="{441106BE-739B-4981-A36C-39D5FC0FBBFD}" PersistMode="Standalone">
+			<ChildrenList>
+				<Folder Name="Weapon" ID="{461A5DBD-4C4B-4E02-985B-BBE8CB23E1A5}" ShortID="888034775">
+					<ChildrenList>
+						<Sound Name="TakeGun" ID="{F687B2F2-0CDC-4248-8086-E82B442F3147}" ShortID="537087963">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{F3849C89-0644-42B1-A703-32C93C4D1BB1}"/>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{ED84217D-2FA0-4F42-95AB-9947F8C079D7}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BAB7496F-D806-4792-B6E7-66724EB8583E}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Handling_Gun_01_Arming_SFX" ID="{2269AC87-A13C-43A1-95B4-594F78E41C9F}">
+									<Language>SFX</Language>
+									<AudioFile>Handling_Gun_01_Arming_SFX.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="193000464"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="RTPC">
+									<Reference>
+										<Local>
+											<RTPC Name="" ID="{BFE683CE-04B3-47B3-BE87-641BD1D69AFD}" ShortID="776589997">
+												<PropertyList>
+													<Property Name="PropertyName" Type="string" Value="Volume"/>
+												</PropertyList>
+												<ReferenceList>
+													<Reference Name="ControlInput">
+														<ObjectRef Name="New_Game_Parameter" ID="{987ADC48-C981-4A49-8328-53BCFCA25C23}" WorkUnitID="{630203A3-CF46-4607-8C89-C96DD4DD4D7A}"/>
+													</Reference>
+													<Reference Name="Curve">
+														<Custom>
+															<Curve Name="" ID="{1B7CEDFB-2D31-4E20-93BD-3E85B8F429A5}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="3"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>-200</YPos>
+																		<Flags>5</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>100</XPos>
+																		<YPos>0</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</RTPC>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+							<ActiveSourceList>
+								<ActiveSource Name="Handling_Gun_01_Arming_SFX" ID="{2269AC87-A13C-43A1-95B4-594F78E41C9F}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="RifleFire" ID="{F5D6B909-3F1B-48E1-BA75-283E3B5EC348}" ShortID="512279395">
+							<PropertyList>
+								<Property Name="3DSpatialization" Type="int16" Value="2"/>
+								<Property Name="Volume" Type="Real64">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{E29CE318-82FA-4A99-B9F6-D018626D3657}"/>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{ED84217D-2FA0-4F42-95AB-9947F8C079D7}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BAB7496F-D806-4792-B6E7-66724EB8583E}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Pistol_01_Fire_01_SFX" ID="{22076E7F-6F2B-43B7-9488-6AAD82F6FFAE}">
+									<Language>SFX</Language>
+									<AudioFile>Pistol_01_Fire_01_SFX.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="543007694"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="RTPC">
+									<Reference>
+										<Local>
+											<RTPC Name="" ID="{79FCFFA1-0A57-4578-86E5-C7D7D4F2AE5B}" ShortID="529075821">
+												<PropertyList>
+													<Property Name="PropertyName" Type="string" Value="Volume"/>
+												</PropertyList>
+												<ReferenceList>
+													<Reference Name="ControlInput">
+														<ObjectRef Name="New_Game_Parameter" ID="{987ADC48-C981-4A49-8328-53BCFCA25C23}" WorkUnitID="{630203A3-CF46-4607-8C89-C96DD4DD4D7A}"/>
+													</Reference>
+													<Reference Name="Curve">
+														<Custom>
+															<Curve Name="" ID="{E81C6066-C94B-4C00-8026-48BD0656915F}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="3"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>-200</YPos>
+																		<Flags>5</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>100</XPos>
+																		<YPos>0</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</RTPC>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+							<ActiveSourceList>
+								<ActiveSource Name="Pistol_01_Fire_01_SFX" ID="{22076E7F-6F2B-43B7-9488-6AAD82F6FFAE}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="TakePistol" ID="{BCD702FD-0F24-468B-B111-093E38505374}" ShortID="977113255">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{904814CA-85A2-4FF9-9988-2BF7648197E5}"/>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{ED84217D-2FA0-4F42-95AB-9947F8C079D7}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BAB7496F-D806-4792-B6E7-66724EB8583E}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Handling_Gun_01_Clip_In_SFX" ID="{0687EF5C-E615-4A82-A39B-7E1EC36D5B14}">
+									<Language>SFX</Language>
+									<AudioFile>Handling_Gun_01_Clip_In_SFX.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="612114013"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="RTPC">
+									<Reference>
+										<Local>
+											<RTPC Name="" ID="{D10387F2-A56D-48C5-A101-628EAF76C7E1}" ShortID="138111490">
+												<PropertyList>
+													<Property Name="PropertyName" Type="string" Value="Volume"/>
+												</PropertyList>
+												<ReferenceList>
+													<Reference Name="ControlInput">
+														<ObjectRef Name="New_Game_Parameter" ID="{987ADC48-C981-4A49-8328-53BCFCA25C23}" WorkUnitID="{630203A3-CF46-4607-8C89-C96DD4DD4D7A}"/>
+													</Reference>
+													<Reference Name="Curve">
+														<Custom>
+															<Curve Name="" ID="{7AE66F6A-4690-4AE8-9872-93FE7B8578D4}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="3"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>-200</YPos>
+																		<Flags>5</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>100</XPos>
+																		<YPos>0</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</RTPC>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+							<ActiveSourceList>
+								<ActiveSource Name="Handling_Gun_01_Clip_In_SFX" ID="{0687EF5C-E615-4A82-A39B-7E1EC36D5B14}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Player" ID="{9CFDB966-B321-4CE7-B840-B60B76FE2D2B}" ShortID="277837696"/>
+				<Folder Name="Enemies" ID="{18883BE7-43E5-4981-950C-736168EA10BF}" ShortID="414589624">
+					<ChildrenList>
+						<Sound Name="Attack" ID="{BDF367C9-28FC-426A-83FA-15D742E72C19}" ShortID="133262295">
+							<PropertyList>
+								<Property Name="3DPosition" Type="int16" Value="2"/>
+								<Property Name="3DSpatialization" Type="int16" Value="2"/>
+								<Property Name="Volume" Type="Real64">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{54293D5D-A2AF-4A64-B52A-A81A73A3E40D}"/>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{ED84217D-2FA0-4F42-95AB-9947F8C079D7}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BAB7496F-D806-4792-B6E7-66724EB8583E}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Z2-V1-Attacking-Free-1" ID="{AAE8833B-4367-4995-A2EA-8CDEBCD6142F}">
+									<Language>SFX</Language>
+									<AudioFile>Z2-V1-Attacking-Free-1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="416718221"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="Z2-V2-Attacking-Free-2" ID="{8990C850-24EA-41C6-B254-123ADBADDBDD}">
+									<Language>SFX</Language>
+									<AudioFile>Z2-V2-Attacking-Free-2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="836851200"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<PositioningInfo>
+								<Position Name="" ID="{E1853751-0B2A-444C-AA0C-829BDB2731ED}"/>
+							</PositioningInfo>
+							<ObjectLists>
+								<ObjectList Name="RTPC">
+									<Reference>
+										<Local>
+											<RTPC Name="" ID="{0F45F758-C172-403D-8444-CC0FA033F3A0}" ShortID="348442463">
+												<PropertyList>
+													<Property Name="PropertyName" Type="string" Value="Volume"/>
+												</PropertyList>
+												<ReferenceList>
+													<Reference Name="ControlInput">
+														<ObjectRef Name="New_Game_Parameter" ID="{987ADC48-C981-4A49-8328-53BCFCA25C23}" WorkUnitID="{630203A3-CF46-4607-8C89-C96DD4DD4D7A}"/>
+													</Reference>
+													<Reference Name="Curve">
+														<Custom>
+															<Curve Name="" ID="{91348E58-ADAA-493F-A5F1-A2C3DA786BC6}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="3"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>-200</YPos>
+																		<Flags>5</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>100</XPos>
+																		<YPos>0</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</RTPC>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+							<ActiveSourceList>
+								<ActiveSource Name="Z2-V2-Attacking-Free-2" ID="{8990C850-24EA-41C6-B254-123ADBADDBDD}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Angry" ID="{8A21375A-0C9D-4FE4-B216-1BC4A9289FBD}" ShortID="192767200">
+							<PropertyList>
+								<Property Name="3DPosition" Type="int16" Value="2"/>
+								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{6C56C8A7-386A-4B52-B71C-9E65B0A72C33}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{ED84217D-2FA0-4F42-95AB-9947F8C079D7}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BAB7496F-D806-4792-B6E7-66724EB8583E}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Z2-V1-Angry-Free-1" ID="{C195F8E2-C141-4B0E-8F21-A6CC8C980C38}">
+									<PropertyList>
+										<Property Name="LoopBegin" Type="Real64" Value="0.119718229655403"/>
+										<Property Name="LoopEnd" Type="Real64" Value="0.820005527096559"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>Z2-V1-Angry-Free-1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="836210471"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Tone Generator" ID="{6A2023E9-1B6F-4F88-BFCA-1856779248D3}" ShortID="769405819" PluginName="Wwise Tone Generator" CompanyID="0" PluginID="102">
+									<Language>SFX</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<PositioningInfo>
+								<Position Name="" ID="{C88B2DBD-3CBB-429C-AE03-17F5B30C35CC}"/>
+							</PositioningInfo>
+							<ObjectLists>
+								<ObjectList Name="RTPC">
+									<Reference>
+										<Local>
+											<RTPC Name="" ID="{05CED301-EF89-4B1B-8C77-D01DD55196CC}" ShortID="806069286">
+												<PropertyList>
+													<Property Name="PropertyName" Type="string" Value="Volume"/>
+												</PropertyList>
+												<ReferenceList>
+													<Reference Name="ControlInput">
+														<ObjectRef Name="New_Game_Parameter" ID="{987ADC48-C981-4A49-8328-53BCFCA25C23}" WorkUnitID="{630203A3-CF46-4607-8C89-C96DD4DD4D7A}"/>
+													</Reference>
+													<Reference Name="Curve">
+														<Custom>
+															<Curve Name="" ID="{DE108E3D-4C94-4DD1-9B7D-519996F5B41E}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="3"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>-200</YPos>
+																		<Flags>5</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>100</XPos>
+																		<YPos>0</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</RTPC>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+							<ActiveSourceList>
+								<ActiveSource Name="Z2-V1-Angry-Free-1" ID="{C195F8E2-C141-4B0E-8F21-A6CC8C980C38}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</Folder>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>

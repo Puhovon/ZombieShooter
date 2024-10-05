@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dcbae8055bfa8d428bb84f7c5143c89, type: 3}
+  m_Name: 5C0DD273-5AD0-4CD5-AC5B-B7AC5E406D60
+  m_EditorClassIdentifier: 
+  objectName: EnemyAttack
+  id: 2144693767
+  guid: 5C0DD273-5AD0-4CD5-AC5B-B7AC5E406D60
+  IsInUserDefinedSoundBank: 0
+  IsAutoBankLoaded: 0

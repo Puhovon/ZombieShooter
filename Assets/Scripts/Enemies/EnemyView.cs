@@ -8,6 +8,10 @@ namespace Enemies
     {
         [SerializeField] private Animator _animator;
         [SerializeField] private Health _health;
+        [SerializeField] private AkEvent _runningEvent;
+        [SerializeField] private AkEvent _attackEvent;
+        [SerializeField] private string _runningEventName;
+        [SerializeField] private string _attackEventName;
 
         private const string Running = "IsRunning";
         private const string Attack = "IsAttack";
@@ -22,12 +26,16 @@ namespace Enemies
 
         public void StartRunning()
         {
-            _animator.SetBool(Running, true);    
+            _animator.SetBool(Running, true);
+            AkSoundEngine.PostEvent(_runningEventName, gameObject);
+            // _runningEvent.HandleEvent(gameObject);
         }
 
         public void StartAttack()
         {
             _animator.SetBool(Attack, true);
+            AkSoundEngine.PostEvent(_attackEventName, gameObject);
+            // _attackEvent.HandleEvent(gameObject);
         }
         
         public void StopRunning()

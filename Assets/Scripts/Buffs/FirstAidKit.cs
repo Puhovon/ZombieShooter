@@ -6,6 +6,7 @@ namespace Buffs
     {
         [SerializeField] private FirstAidKitView _view;
         [SerializeField] private int _heal;
+        
         private void Start()
         {
             _view.StartDefaultAnim();

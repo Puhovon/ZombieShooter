@@ -15,6 +15,8 @@ namespace Weapons
         private IRaycaster _raycaster;
         private InputSystem_Actions _input;
         private Coroutine _coroutine;
+        private bool _isAttacked;
+
 
         [Inject]
         private void Construct(InputSystem_Actions input)
@@ -37,10 +39,10 @@ namespace Weapons
         {
             _input.Player.Attack.performed -= HandleAttack;
         }
-
+        
         private void HandleAttack(InputAction.CallbackContext callbackContext)
         {
-            if(Attack())
+            if(IsCanAttack())
                 Shoot();
         }
 

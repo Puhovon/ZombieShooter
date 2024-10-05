@@ -1,0 +1,151 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Mac",
+  "BasePlatform": "Mac",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "153",
+  "SoundBanks": [
+   {
+    "Id": "4072029455",
+    "Type": "User",
+    "GUID": "{D574551E-DBCF-461B-B43C-E45E5AAA1FDE}",
+    "Language": "SFX",
+    "Hash": "{9CB90D40-C725-A7C0-4EF5-A6812558D088}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\New_SoundBank",
+    "ShortName": "New_SoundBank",
+    "Path": "New_SoundBank.bnk",
+    "Media": [
+     {
+      "Id": "193000464",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Handling_Gun_01_Arming_SFX.wav",
+      "CachePath": "B1/{B1A79718-B21C-C427-2230-13CABEA72279}.wem"
+     },
+     {
+      "Id": "543007694",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Pistol_01_Fire_01_SFX.wav",
+      "CachePath": "C5/{C5724347-EE49-4FB4-2784-ACCCBB434A5B}.wem"
+     },
+     {
+      "Id": "612114013",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Handling_Gun_01_Clip_In_SFX.wav",
+      "CachePath": "9E/{9E3BBD5E-05D8-E2F5-B530-60597486A8E3}.wem"
+     },
+     {
+      "Id": "836210471",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Z2-V1-Angry-Free-1.wav",
+      "CachePath": "61/{61106E91-EC80-66C7-56F4-A595F1555F22}.wem"
+     },
+     {
+      "Id": "836851200",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Z2-V2-Attacking-Free-2.wav",
+      "CachePath": "7C/{7CF6056F-99EE-C20B-24A9-017D887EB137}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "2144693767",
+      "Name": "EnemyAttack",
+      "ObjectPath": "\\Events\\Default Work Unit\\EnemyAttack",
+      "GUID": "{5C0DD273-5AD0-4CD5-AC5B-B7AC5E406D60}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.3133334",
+      "DurationMax": "1.3133334",
+      "MediaRefs": [
+       {
+        "Id": "836851200"
+       }
+      ]
+     },
+     {
+      "Id": "2176766748",
+      "Name": "EnemyRunning",
+      "ObjectPath": "\\Events\\Default Work Unit\\EnemyRunning",
+      "GUID": "{C9D9E016-F564-48EB-A324-C1E27CBFE137}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "836210471"
+       }
+      ]
+     },
+     {
+      "Id": "899535137",
+      "Name": "PistolTake",
+      "ObjectPath": "\\Events\\Default Work Unit\\PistolTake",
+      "GUID": "{99C504D7-59E4-4825-BBE5-FAE7712ECD29}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.0061225",
+      "DurationMax": "1.0061225",
+      "MediaRefs": [
+       {
+        "Id": "612114013"
+       }
+      ]
+     },
+     {
+      "Id": "3794713601",
+      "Name": "RifleFire",
+      "ObjectPath": "\\Events\\Default Work Unit\\RifleFire",
+      "GUID": "{CB570C64-6760-4E0A-B94C-8C04C49AAC87}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.379297",
+      "DurationMax": "1.379297",
+      "MediaRefs": [
+       {
+        "Id": "543007694"
+       }
+      ]
+     },
+     {
+      "Id": "878501037",
+      "Name": "Set_Bus_Volume",
+      "ObjectPath": "\\Events\\Default Work Unit\\Set_Bus_Volume",
+      "GUID": "{8C9F8CCC-A075-40E9-AADB-857DF6DDA1CF}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0"
+     },
+     {
+      "Id": "4155660387",
+      "Name": "take_gun",
+      "ObjectPath": "\\Events\\Default Work Unit\\take_gun",
+      "GUID": "{01C3F910-2A7D-447D-A372-0F7BB311F89A}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.29165533",
+      "DurationMax": "0.29165533",
+      "MediaRefs": [
+       {
+        "Id": "193000464"
+       }
+      ]
+     }
+    ],
+    "GameParameters": [
+     {
+      "Id": "3671138082",
+      "Name": "New_Game_Parameter",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\New_Game_Parameter",
+      "GUID": "{987ADC48-C981-4A49-8328-53BCFCA25C23}"
+     }
+    ]
+   }
+  ],
+  "FileHash": "{C592D8C9-8C89-B2AB-9552-D2C602C2CF84}"
+ }
+}

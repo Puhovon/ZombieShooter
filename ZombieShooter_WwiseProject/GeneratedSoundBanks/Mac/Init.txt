@@ -1,0 +1,11 @@
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	3671138082	New_Game_Parameter			\Default Work Unit\New_Game_Parameter	
+
+Audio Bus	ID	Name			Wwise Object Path	Notes
+	2255513057	New Audio Bus			\Default Work Unit\Master Audio Bus\New Audio Bus	
+	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
+
+Audio Devices	ID	Name	Type				Notes
+	2317455096	No_Output	No Output			
+	3859886410	System	System			
+

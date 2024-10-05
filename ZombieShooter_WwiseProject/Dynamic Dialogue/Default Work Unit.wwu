@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{A8D2C665-C171-4E11-B861-4623C043C1F9}" SchemaVersion="123">
+	<DynamicDialogue>
+		<WorkUnit Name="Default Work Unit" ID="{A8D2C665-C171-4E11-B861-4623C043C1F9}" PersistMode="Standalone">
+			<ChildrenList>
+				<Folder Name="New Virtual Folder" ID="{C69C830E-1C48-4996-852F-B795A54C31AC}" ShortID="126725479"/>
+			</ChildrenList>
+		</WorkUnit>
+	</DynamicDialogue>
+</WwiseDocument>

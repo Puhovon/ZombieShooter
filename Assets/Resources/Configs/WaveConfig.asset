@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66729ddb5f264b9ba06cd8f401c2eda2, type: 3}
   m_Name: WaveConfig
   m_EditorClassIdentifier: 
-  StartEnemiesCount: 5
+  StartEnemiesCount: 15
   CountMagnifier: 2

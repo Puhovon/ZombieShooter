@@ -39,8 +39,7 @@ namespace Global
         {
             if (_currentHealth + heal > _healthConfig.maxHealth)
             {
-                heal = _currentHealth + heal - _healthConfig.maxHealth;
-                _currentHealth = heal;
+                _currentHealth = _healthConfig.maxHealth;
             }
             else
                 _currentHealth += heal;

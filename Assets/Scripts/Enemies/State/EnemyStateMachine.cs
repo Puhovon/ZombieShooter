@@ -21,6 +21,7 @@ public class EnemyStateMachine : IStateSwitcher
             new AttackState(agent, config, enemy, this, mask, view),
         };
         _currentState = _states[0];
+        _currentState.Enter();
     }
 
     public void Update()

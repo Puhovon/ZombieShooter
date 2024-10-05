@@ -48,7 +48,7 @@ namespace Weapons
         
         public override void Shoot()
         { 
-            if(Attack())
+            if(IsCanAttack())
                 Raycasting();
         }
 

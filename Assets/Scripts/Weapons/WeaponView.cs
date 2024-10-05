@@ -6,6 +6,7 @@ namespace Weapons
     public class WeaponView : MonoBehaviour
     {
         private ParticlesPool _particlesPool;
+        [SerializeField] private string _shootEventName;
         
         [Inject]
         private void Construct(ParticlesPool particles)
@@ -18,6 +19,11 @@ namespace Weapons
             var obj = _particlesPool.GetObject();
             obj.transform.position = hit.point;
             obj.transform.rotation = Quaternion.LookRotation(hit.normal);
+        }
+
+        public void ShootSound()
+        {
+            AkSoundEngine.PostEvent(_shootEventName, gameObject);
         }
     }
 }
