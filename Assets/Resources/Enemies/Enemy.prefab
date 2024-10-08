@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5067380843606598935
 Transform:
   m_ObjectHideFlags: 0
@@ -47,6 +47,8 @@ GameObject:
   - component: {fileID: 2108977965404560692}
   - component: {fileID: 2925184344916369232}
   - component: {fileID: 7816370307763509991}
+  - component: {fileID: 3381118162029687}
+  - component: {fileID: 7014553008496448446}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Untagged
@@ -165,6 +167,43 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 2, z: 1}
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &3381118162029687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1892759570530788985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c8f1468c1457da47ae3297bdfc5031f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_listeners:
+    initialListenerList:
+    - {fileID: 7014553008496448446}
+    useDefaultListeners: 0
+  isEnvironmentAware: 0
+  isStaticObject: 0
+  m_positionOffsetData:
+    KeepMe: 0
+    positionOffset: {x: 0, y: 0, z: 0}
+  m_posOffsetData: {fileID: 0}
+  listenerMask: 1
+--- !u!114 &7014553008496448446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1892759570530788985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fa95ade0e8e8ac44b11e5387c40d5dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDefaultListener: 0
+  listenerId: 0
 --- !u!1 &2481453317733293167
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,7 +215,7 @@ GameObject:
   - component: {fileID: 197627803869715981}
   - component: {fileID: 330635823494972469}
   - component: {fileID: 798647100780802547}
-  - component: {fileID: 6310208532124142380}
+  - component: {fileID: 3088347515337699892}
   m_Layer: 6
   m_Name: Attak
   m_TagString: Untagged
@@ -213,9 +252,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_listeners:
     initialListenerList:
-    - {fileID: 0}
+    - {fileID: 3088347515337699892}
     useDefaultListeners: 0
-  isEnvironmentAware: 1
+  isEnvironmentAware: 0
   isStaticObject: 0
   m_positionOffsetData:
     KeepMe: 0
@@ -250,33 +289,20 @@ MonoBehaviour:
   eventIdInternal: 0
   valueGuidInternal: 
   m_callbackDataInternal: {fileID: 0}
---- !u!54 &6310208532124142380
-Rigidbody:
+--- !u!114 &3088347515337699892
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2481453317733293167}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fa95ade0e8e8ac44b11e5387c40d5dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDefaultListener: 0
+  listenerId: 0
 --- !u!1 &4692603910702571372
 GameObject:
   m_ObjectHideFlags: 0
@@ -440,7 +466,6 @@ GameObject:
   - component: {fileID: 7554711650473390490}
   - component: {fileID: 6778935823434196144}
   - component: {fileID: 3653888365853438106}
-  - component: {fileID: 9011755423954857857}
   m_Layer: 6
   m_Name: Angry
   m_TagString: Untagged
@@ -477,9 +502,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_listeners:
     initialListenerList:
-    - {fileID: 0}
+    - {fileID: 7014553008496448446}
     useDefaultListeners: 0
-  isEnvironmentAware: 1
+  isEnvironmentAware: 0
   isStaticObject: 0
   m_positionOffsetData:
     KeepMe: 0
@@ -514,33 +539,6 @@ MonoBehaviour:
   eventIdInternal: 0
   valueGuidInternal: 
   m_callbackDataInternal: {fileID: 0}
---- !u!54 &9011755423954857857
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7825229657726132972}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &9151461742029297529
 GameObject:
   m_ObjectHideFlags: 0
@@ -1626,9 +1624,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 9016968747827598409, guid: d0d4b6e2ff5dff942bed58603053036a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1971785517368321191}
-    - targetCorrespondingSourceObject: {fileID: 9016968747827598409, guid: d0d4b6e2ff5dff942bed58603053036a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1238875087885134135}
   m_SourcePrefab: {fileID: 100100000, guid: d0d4b6e2ff5dff942bed58603053036a, type: 3}
 --- !u!95 &5605265837822658495 stripped
 Animator:
@@ -1658,28 +1653,6 @@ MonoBehaviour:
   _attackEvent: {fileID: 798647100780802547}
   _runningEventName: EnemyRunning
   _attackEventName: EnemyAttack
---- !u!114 &1238875087885134135
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6063492011666237857}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c8f1468c1457da47ae3297bdfc5031f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_listeners:
-    initialListenerList: []
-    useDefaultListeners: 1
-  isEnvironmentAware: 1
-  isStaticObject: 0
-  m_positionOffsetData:
-    KeepMe: 0
-    positionOffset: {x: 0, y: 0, z: 0}
-  m_posOffsetData: {fileID: 0}
-  listenerMask: 1
 --- !u!4 &6751147839010397680 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8410342176311255064, guid: d0d4b6e2ff5dff942bed58603053036a, type: 3}

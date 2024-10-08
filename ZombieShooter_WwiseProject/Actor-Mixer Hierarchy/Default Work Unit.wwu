@@ -223,8 +223,8 @@
 					<ChildrenList>
 						<Sound Name="Attack" ID="{BDF367C9-28FC-426A-83FA-15D742E72C19}" ShortID="133262295">
 							<PropertyList>
-								<Property Name="3DPosition" Type="int16" Value="2"/>
 								<Property Name="3DSpatialization" Type="int16" Value="2"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="Volume" Type="Real64">
 									<ModifierList>
 										<ModifierInfo>
@@ -258,7 +258,21 @@
 								</AudioFileSource>
 							</ChildrenList>
 							<PositioningInfo>
-								<Position Name="" ID="{E1853751-0B2A-444C-AA0C-829BDB2731ED}"/>
+								<Panner Name="" ID="{8C993865-292D-4EEA-AD8C-773A2257AEC5}"/>
+								<Position Name="" ID="{E1853751-0B2A-444C-AA0C-829BDB2731ED}">
+									<ChildrenList>
+										<Path2D Name="Attack_Path" ID="{86A7498B-FD16-442E-B5F9-8F9AD86333B5}">
+											<PointList>
+												<Point>
+													<XPos>0</XPos>
+													<YPos>0</YPos>
+													<Flags>12</Flags>
+													<Time>0</Time>
+												</Point>
+											</PointList>
+										</Path2D>
+									</ChildrenList>
+								</Position>
 							</PositioningInfo>
 							<ObjectLists>
 								<ObjectList Name="RTPC">
@@ -300,15 +314,18 @@
 								</ObjectList>
 							</ObjectLists>
 							<ActiveSourceList>
-								<ActiveSource Name="Z2-V2-Attacking-Free-2" ID="{8990C850-24EA-41C6-B254-123ADBADDBDD}" Platform="Linked"/>
+								<ActiveSource Name="Z2-V1-Attacking-Free-1" ID="{AAE8833B-4367-4995-A2EA-8CDEBCD6142F}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Angry" ID="{8A21375A-0C9D-4FE4-B216-1BC4A9289FBD}" ShortID="192767200">
 							<PropertyList>
-								<Property Name="3DPosition" Type="int16" Value="2"/>
-								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="3DSpatialization" Type="int16" Value="2"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
 									<ModifierList>
 										<ModifierInfo>
 											<Modifier Name="" ID="{6C56C8A7-386A-4B52-B71C-9E65B0A72C33}">
@@ -341,12 +358,25 @@
 										<MediaID ID="836210471"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<SourcePlugin Name="Tone Generator" ID="{6A2023E9-1B6F-4F88-BFCA-1856779248D3}" ShortID="769405819" PluginName="Wwise Tone Generator" CompanyID="0" PluginID="102">
-									<Language>SFX</Language>
-								</SourcePlugin>
 							</ChildrenList>
 							<PositioningInfo>
-								<Position Name="" ID="{C88B2DBD-3CBB-429C-AE03-17F5B30C35CC}"/>
+								<Position Name="" ID="{C88B2DBD-3CBB-429C-AE03-17F5B30C35CC}">
+									<PropertyList>
+										<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+									</PropertyList>
+									<ChildrenList>
+										<Path2D Name="Angry_Path" ID="{F74BCC95-28E5-4060-A289-7FB7362137D7}">
+											<PointList>
+												<Point>
+													<XPos>0</XPos>
+													<YPos>39.54802</YPos>
+													<Flags>12</Flags>
+													<Time>0</Time>
+												</Point>
+											</PointList>
+										</Path2D>
+									</ChildrenList>
+								</Position>
 							</PositioningInfo>
 							<ObjectLists>
 								<ObjectList Name="RTPC">

@@ -27,15 +27,18 @@ namespace Enemies
         public void StartRunning()
         {
             _animator.SetBool(Running, true);
-            AkSoundEngine.PostEvent(_runningEventName, gameObject);
-            // _runningEvent.HandleEvent(gameObject);
+            // AkSoundEngine.PostEvent(_runningEventName, gameObject);
+            _runningEvent.HandleEvent(gameObject);
+            _attackEvent.Stop(0);
         }
 
         public void StartAttack()
         {
             _animator.SetBool(Attack, true);
-            AkSoundEngine.PostEvent(_attackEventName, gameObject);
-            // _attackEvent.HandleEvent(gameObject);
+            // AkSoundEngine.PostEvent(_attackEventName, gameObject);
+            
+            _attackEvent.HandleEvent(gameObject);
+            _runningEvent.Stop(0);
         }
         
         public void StopRunning()
@@ -53,6 +56,8 @@ namespace Enemies
             StopAttack();
             StopRunning();
             _animator.SetBool(Dying, true);
+            _attackEvent.Stop(0);
+            _runningEvent.Stop(0);
         }
         
         public void OnAttackAnimationEnd() {
